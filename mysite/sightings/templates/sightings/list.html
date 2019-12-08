@@ -4,27 +4,28 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-     <title> Sightings </title>
+     <title> Sightings list </title>
   </head>
 
   <body>
-    <h1 class="display-4"> Sightings </h1>
-    <table class="table table-striped">
-      <thead class="thead-light">
+    <h1 class="h5"> Sightings list </h1>
+    <table class="table table-hover">
+      <thead>
         <tr>
           <th scope="col">Squirrel ID</th>
-          <th scope="col">Date</th>
-          <th scope="col">Update</th>
         </tr>
+      </thead>
+      <tbody>
         {% for sighting in sightings %}
         <tr>
-          <td> {{ sighting.squirrel_id }} </td>
-          <td> {{ sighting.date }} </td>
-          <td> <a href="{% url "sighting_update" sighting.squirrel_id %}" class="badge badge-primary">update</a></td>
+          <td> <a href="/sightings/{{ sighting.squirrel_id }}/" >{{ sighting.squirrel_id }}</a></td>
         </tr>
         {% endfor %}
+      <tbody>
     </table>
-    <a href="{% url "sighting_add" %}" class="btn btn-success">add a new sighting</a>
+    <nav>
+    <a href="{% url "sighting_add" %}" class="btn btn-success">add a new sighting</a>  
+    </nav>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
