@@ -1,4 +1,5 @@
 # Squirrel-Tracker
+<<<<<<< HEAD
 Squirrel project for Tools
 
 /map: A view that shows a map that displays the location of the squirrel sightings
@@ -14,3 +15,7 @@ UNIS:[qs2210,yw3389]
 https://tools-for-analytics-254720.appspot.com
 
 
+=======
+Squirrel project for Tools 
+Students UNI:[qs2210,yw3389]
+>>>>>>> 8c2a23dfbfc1a4bba91e6495ab96dc965a08e5ce
