@@ -1,3 +1,3 @@
 # Squirrel-Tracker
 Squirrel project for Tools 
-Student UNI:[qs2210,yw3389]
+Students UNI:[qs2210,yw3389]
