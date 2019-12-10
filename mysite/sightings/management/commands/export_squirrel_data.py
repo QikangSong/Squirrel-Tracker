@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand,CommandError
 from sighting.models import Sighting
 
 class Command(BaseCommand):
-    help='Export CSV'
+    help='Export to CSV'
 
     def add_arguments(self,path):
         path.add_argument('csv_file',nargs='+',type=str)
@@ -10,11 +10,10 @@ class Command(BaseCommand):
     def handle(self,*arg,**options):
         import csv
         from django.http import HttpResponse
-        #writing header
         path=str(options['csv_file'][0])
         with open(path,'w') as f:
             writer = csv.writer(f)
-            header=['latitude',
+            head_=['latitude',
                     'longitude',
                     'squirrel_id',
                     'shift',
@@ -37,10 +36,9 @@ class Command(BaseCommand):
                     'approaches',
                     'indifferent',
                     'runs_from',]
-            writer.writerow(header)
-            #writing data
-            squirrel_data=Sighting.objects.all()
-            for data in squirrel_data:
+            writer.writerow(head_)
+            datas=Sighting.objects.all()
+            for data in datas:
                 writer.writerow([data.latitude,
                                  data.longitude,
                                  data.squirrel_id,

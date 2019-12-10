@@ -47,10 +47,10 @@ def sighting_stats(request):
     template = 'sightings/stats.html'
     stats_list = [
             Sighting.objects.aggregate(total_squirrels_number = Count('squirrel_id')),
-            Sighting.objects.filter(age ='Adult').aggregate(num_Adult_number = Count('squirrel_id')),
-            Sighting.objects.filter(age ='Juvenile').aggregate(num_Juvenile_Squirrels = Count('squirrel_id')),
-            Sighting.objects.filter(fur_color='Gray').aggregate(color_Gray_Squirrels_number = Count('squirrel_id')),
-            Sighting.objects.filter(running ='True').aggregate(running_True_Squirrels_number = Count('squirrel_id')),
+            Sighting.objects.filter(age ='Adult').aggregate(Adult_number = Count('squirrel_id')),
+            Sighting.objects.filter(age ='Juvenile').aggregate(Juvenile_num = Count('squirrel_id')),
+            Sighting.objects.filter(fur_color='Gray').aggregate(Gray_number = Count('squirrel_id')),
+            Sighting.objects.filter(running ='True').aggregate(Running__number = Count('squirrel_id')),
             ]
     sighting_list=[]
     for sighting in stats_list:

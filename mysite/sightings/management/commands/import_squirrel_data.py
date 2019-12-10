@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand, CommandError
 from sightings.models import Sighting
 
 class Command(BaseCommand):
-    help = 'Import CSV'
+    help = 'Import from CSV'
     
     def add_arguments(self,path):
         path.add_argument('csv_file',nargs='+',type=str)
@@ -15,7 +15,6 @@ class Command(BaseCommand):
         with open(path) as f:
             data=csv.reader(f)
             next(data)
-            counter=0
             for line in data:
                 for i in (15,16,17,18,19,21,22,23,24,25,26,27,28):
                     if line[i]=='false':
@@ -46,9 +45,5 @@ class Command(BaseCommand):
                     approaches=line[26],
                     indifferent=line[27],
                     runs_from=line[28],)
-                #try:
                 sighting.save()
-                 #   counter+=1
-                #except:
-                 #   print(f"there was a problem with line{counter}")
-                  #  counter+=1
+
